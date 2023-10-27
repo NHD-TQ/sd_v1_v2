@@ -66,13 +66,13 @@ def parse_args():
     parser.add_argument(
         "--H",
         type=int,
-        default=256,
+        default=128,
         help="image height, in pixel space",
     )
     parser.add_argument(
         "--W",
         type=int,
-        default=256,
+        default=128,
         help="image width, in pixel space",
     )
     parser.add_argument(
@@ -169,7 +169,6 @@ def parse_args():
 def chunk(it, size):
     it = iter(it)
     return iter(lambda: tuple(islice(it, size)), ())
-
 
 def load_model_from_config(config, ckpt, device=torch.device("cuda"), verbose=False):
     print(f"Loading model from {ckpt}")
